@@ -22,6 +22,11 @@ public class Called {
     @JoinColumn(name = "user.id")
     private User user;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "technician.id")
+    private Technicians technicians;
+
     public Called(){
 
     }
@@ -63,6 +68,14 @@ public class Called {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Technicians getTechnicians() {
+        return technicians;
+    }
+
+    public void setTechnicians(Technicians technicians) {
+        this.technicians = technicians;
     }
 
     @Override

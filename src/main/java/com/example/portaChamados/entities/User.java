@@ -52,6 +52,11 @@ public class User implements Serializable {
     public String getUsername(){
         return username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword(){
         return password;
     }
@@ -59,6 +64,15 @@ public class User implements Serializable {
     public void setPassword(String password){
         this.password = password;
     }
+
+    public List<Called> getCalled() {
+        return called;
+    }
+
+    public void setCalled(List<Called> called) {
+        this.called = called;
+    }
+
 
     @Override
     public boolean equals(Object o) {

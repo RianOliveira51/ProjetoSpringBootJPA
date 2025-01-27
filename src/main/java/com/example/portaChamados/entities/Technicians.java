@@ -3,7 +3,7 @@ package com.example.portaChamados.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "Technicians")
@@ -15,6 +15,9 @@ public class Technicians implements Serializable {
     private String name;
     private String username;
     private String password;
+
+    @OneToMany(mappedBy = "technicians")
+    private Set<Called> technicians = new HashSet<>();
 
     public Technicians(){
 
