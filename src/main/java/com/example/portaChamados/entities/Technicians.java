@@ -62,11 +62,12 @@ public class Technicians implements Serializable {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Technicians technicians = (Technicians) o;
-        return Objects.equals(id, technicians.id);
+    public Set<Called> getTechnicians() {
+        return technicians;
+    }
+
+    public void setTechnicians(Set<Called> technicians) {
+        this.technicians = technicians;
     }
 
     @Override
