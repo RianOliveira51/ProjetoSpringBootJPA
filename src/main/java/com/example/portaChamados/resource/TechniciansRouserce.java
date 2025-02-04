@@ -27,6 +27,7 @@ public class TechniciansRouserce {
         return ResponseEntity.ok().body(list);
     }
 
+    //Implementado methodo para autenticação de login
     @PostMapping(value = "/{login}")
     public ResponseEntity<Technicians> findbyId(@RequestBody Technicians th) {
         Technicians obj = tecnicianService.loadUserBylogin(th.getLogin(), th.getPassword());
