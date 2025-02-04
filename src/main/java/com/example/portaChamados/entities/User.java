@@ -22,6 +22,7 @@ public class User implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Called> called = new ArrayList<>();
+
     public User(){
 
     }
@@ -72,7 +73,6 @@ public class User implements Serializable {
     public void setCalled(List<Called> called) {
         this.called = called;
     }
-
 
     @Override
     public boolean equals(Object o) {

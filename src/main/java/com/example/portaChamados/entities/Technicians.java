@@ -13,7 +13,7 @@ public class Technicians implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String username;
+    private String login;
     private String password;
 
     @OneToMany(mappedBy = "technicians")
@@ -23,10 +23,10 @@ public class Technicians implements Serializable {
 
     }
 
-    public Technicians(Integer id, String name, String username, String password) {
+    public Technicians(Integer id, String name, String login, String password) {
         this.id = id;
         this.name = name;
-        this.username = username;
+        this.login = login;
         this.password = password;
     }
 
@@ -46,12 +46,12 @@ public class Technicians implements Serializable {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String username) {
+        this.login = username;
     }
 
     public String getPassword() {
@@ -80,7 +80,7 @@ public class Technicians implements Serializable {
         return "HelpDesk{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + login + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

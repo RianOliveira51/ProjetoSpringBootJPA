@@ -17,6 +17,7 @@ import java.util.Arrays;
 @Configuration
 @Profile("dev")
 public class Config implements CommandLineRunner {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -41,7 +42,7 @@ public class Config implements CommandLineRunner {
 
         Technicians tec1 = new Technicians(null, "Diego", "diego-martins", "154878");
         Technicians tec2 = new Technicians(null, "Leonardo", "leonardo-mendonça", "154879");
-        Technicians tec3 = new Technicians(null, "Jhonatan", "jhonanta-camargo", "787844");
+        Technicians tec3 = new Technicians(null, "Jhonatan", "jhonanta", "787844");
 
         techniciansRepository.saveAll(Arrays.asList(tec1, tec2, tec3));
 
