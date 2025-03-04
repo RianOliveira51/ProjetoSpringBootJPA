@@ -51,6 +51,7 @@ public class CalledResouce {
         return ResponseEntity.ok().body(called);
     }
 
+    //Atribuindo usuario.
     @PutMapping(value="/add")
     public ResponseEntity<AddTechniciansToCalledDto> add(@RequestBody AddTechniciansToCalledDto dtorequest) {
         calledService.addTecnicians(dtorequest);
