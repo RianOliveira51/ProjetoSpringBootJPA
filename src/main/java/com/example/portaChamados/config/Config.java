@@ -46,15 +46,15 @@ public class Config implements CommandLineRunner {
 
         techniciansRepository.saveAll(Arrays.asList(tec1, tec2, tec3));
 
-        Called cal1 = new Called(null, CalledStatus.Open, "Erro Protheus", user1);
-        Called cal2 = new Called(null, CalledStatus.Closed, "Meu pc não liga", user2);
-        Called cal3 = new Called(null, CalledStatus.Open, "Esqueci minha senha", user3);
-        Called cal4 = new Called(null, CalledStatus.Pendants, "Esqueci minha senha", user1);
+        Called cal1 = new Called(null, CalledStatus.Open, "Erro Protheus", user1, "");
+        Called cal2 = new Called(null, CalledStatus.Closed, "Meu pc não liga", user2, "Problema era tomada");
+        Called cal3 = new Called(null, CalledStatus.Open, "Esqueci minha senha", user3, "");
+        Called cal4 = new Called(null, CalledStatus.Pendants, "Esqueci minha senha", user1, "Resetado senha");
 
         calledRepository.saveAll(Arrays.asList(cal1, cal2, cal3, cal4));
 
-        cal1.setTechnicians(tec1);
+        cal4.setTechnicians(tec1);
 
-        calledRepository.save(cal1);
+        calledRepository.save(cal4);
     }
 }

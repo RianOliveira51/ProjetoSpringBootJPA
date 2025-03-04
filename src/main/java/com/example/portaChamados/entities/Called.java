@@ -16,6 +16,7 @@ public class Called {
     private Integer Id;
     private CalledStatus status;
     private String text;
+    private String comment;
 
     @JsonIgnore
     @ManyToOne
@@ -31,11 +32,12 @@ public class Called {
 
     }
 
-    public Called(Integer id, CalledStatus status, String text, User user) {
+    public Called(Integer id, CalledStatus status, String text, User user , String comment) {
         Id = id;
         this.status = status;
         this.text = text;
         this.user = user;
+        this.comment = comment;
     }
 
     public Integer getId() {
@@ -78,6 +80,14 @@ public class Called {
         this.technicians = technicians;
     }
 
+    public String getComment(){
+        return comment;
+    }
+
+    public void setComment(String comment){
+        this.comment = comment;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -97,6 +107,8 @@ public class Called {
                 ", status=" + status +
                 ", text='" + text + '\'' +
                 ", user=" + user +
+                ", technicians=" + technicians +
+                ", comment='" + comment + '\'' +
                 '}';
     }
 }
