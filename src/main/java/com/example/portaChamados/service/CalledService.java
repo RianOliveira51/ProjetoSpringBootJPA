@@ -3,6 +3,7 @@ package com.example.portaChamados.service;
 import com.example.portaChamados.entities.Called;
 import com.example.portaChamados.entities.DTO.AddTechniciansToCalledDto;
 import com.example.portaChamados.entities.Technicians;
+import com.example.portaChamados.entities.enums.CalledStatus;
 import com.example.portaChamados.repositories.CalledRepository;
 import com.example.portaChamados.repositories.TechniciansRepository;
 import com.example.portaChamados.service.exceptions.DatabaseException;
@@ -26,6 +27,10 @@ public class CalledService {
     private TecnicianService tecnicianService;
 
     public List<Called> findAll(){ return calledRepository.findAll(); }
+
+    public List<Called> findStatus(Integer status){
+        return calledRepository.findByStatus(status);
+    }
 
 
     public Called findById(Integer id){

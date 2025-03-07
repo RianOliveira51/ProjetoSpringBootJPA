@@ -3,6 +3,7 @@ package com.example.portaChamados.resource;
 import com.example.portaChamados.entities.Called;
 import com.example.portaChamados.entities.DTO.AddTechniciansToCalledDto;
 import com.example.portaChamados.entities.Technicians;
+import com.example.portaChamados.entities.enums.CalledStatus;
 import com.example.portaChamados.repositories.CalledRepository;
 import com.example.portaChamados.service.CalledService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +57,12 @@ public class CalledResouce {
     public ResponseEntity<AddTechniciansToCalledDto> add(@RequestBody AddTechniciansToCalledDto dtorequest) {
         calledService.addTecnicians(dtorequest);
         return ResponseEntity.ok().body(dtorequest);
+    }
+
+    //EndPoints listar chamados por Status
+    @GetMapping(value = "/status/{status}")
+    public ResponseEntity<List<Called>> findStatus(@PathVariable Integer status) {
+        List<Called> list = calledService.findStatus(status);
+        return ResponseEntity.ok().body(list);
     }
 }

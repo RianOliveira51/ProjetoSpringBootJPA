@@ -14,7 +14,9 @@ public class Called {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
-    private CalledStatus status;
+    //Transforma a posição dos enum no nomes dos atributos.
+    //@Enumerated(EnumType.STRING)
+    private Integer status;
     private String text;
     private String comment;
 
@@ -34,7 +36,7 @@ public class Called {
 
     public Called(Integer id, CalledStatus status, String text, User user , String comment) {
         Id = id;
-        this.status = status;
+        setStatus(status);
         this.text = text;
         this.user = user;
         this.comment = comment;
@@ -49,11 +51,14 @@ public class Called {
     }
 
     public CalledStatus getStatus() {
-        return status;
+        return CalledStatus.valueOf1(status);
     }
 
     public void setStatus(CalledStatus status) {
-        this.status = status;
+        if(status != null){
+            //this.status = status.ordinal();
+            this.status = status.getCode();
+        }
     }
 
     public String getText() {

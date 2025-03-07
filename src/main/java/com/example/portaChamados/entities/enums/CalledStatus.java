@@ -1,23 +1,29 @@
 package com.example.portaChamados.entities.enums;
 
 public enum CalledStatus {
+
     Open(1),
     Assigned(2),
-    Pendants(3),
+    Pendents(3),
     Closed(4);
 
-    private int cod;
+    private int code;
 
-    private CalledStatus(int cod) { this.cod = cod;}
+    private CalledStatus(int code) {
+        this.code = code;
+    }
 
-    public int getCod() { return cod; }
+    public int getCode(){
+        return code;
+    }
 
-    public static CalledStatus valuefOf(int code){
+    public static CalledStatus valueOf1(int code){
         for(CalledStatus c : CalledStatus.values()){
-            if(c.getCod() == code){
+            if(c.getCode() == code){
                 return c;
             }
         }
-        throw new IllegalArgumentException("Status não existe " + code);
+        throw new IllegalArgumentException("No enum constant " + code);
     }
+
 }
